@@ -21,8 +21,24 @@
   
   .subtitle {
     margin-top: 0;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     color: #555;
+  }
+  
+  .controls {
+    margin-bottom: 1rem;
+  }
+  
+  button {
+    padding: 0.6rem 1rem;
+    border: 1px solid #bbb;
+    background: white;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background: #f0f0f0;
   }
   
   #canvas-wrapper {
