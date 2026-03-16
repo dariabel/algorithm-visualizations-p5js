@@ -1,0 +1,33 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f7f7f7;
+    color: #222;
+  }
+  
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+  
+  h1 {
+    margin-bottom: 0.5rem;
+  }
+  
+  .subtitle {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    color: #555;
+  }
+  
+  #canvas-wrapper {
+    border: 1px solid #ddd;
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+  }
