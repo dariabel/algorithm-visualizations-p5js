@@ -1,24 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Algorithm Visualizations with p5.js</title>
-  <link rel="stylesheet" href="style.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Algorithm Visualizations with p5.js</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
 </head>
 <body>
-  <main class="container">
-    <h1>Algorithm Visualizations</h1>
-    <p class="subtitle">A small p5.js project for visualizing classic algorithms.</p>
+    <main class="container">
+        <h1>Algorithm Visualizations</h1>
 
-    <div class="controls">
-        <button id="generate-btn">Generate New Array</button>
-        <button id="start-btn">Start Bubble Sort</button>
-    </div>
-    <div id="canvas-wrapper"></div>
-  </main>
+        <p class="subtitle">
+            Interactive visualizations of classic algorithms using p5.js.
+        </p>
 
-  <script src="src/sketch.js"></script>
+        <div class="controls">
+            <button id="generate-btn">
+                Generate New Array
+            </button>
+        </div>
+
+        <div id="canvas-wrapper"></div>
+    </main>
+
+    <script src="src/array.js"></script>
+    <script src="src/renderer.js"></script>
+    <script src="src/sketch.js"></script>
 </body>
 </html>
