@@ -10,21 +10,19 @@
 <body>
     <main class="container">
         <h1>Algorithm Visualizations</h1>
-
-        <p class="subtitle">
-            Interactive visualizations of classic algorithms using p5.js.
-        </p>
+        <p class="subtitle">Interactive visualizations of classic algorithms using p5.js.</p>
 
         <div class="controls">
-            <button id="generate-btn">
-                Generate New Array
-            </button>
+            <button id="generate-btn">Generate New Array</button>
+            <button id="start-btn">Start Bubble Sort</button>
         </div>
 
+        <p id="status-text" class="status">Ready</p>
         <div id="canvas-wrapper"></div>
     </main>
 
     <script src="src/array.js"></script>
+    <script src="src/algorithms.js"></script>
     <script src="src/renderer.js"></script>
     <script src="src/sketch.js"></script>
 </body>
