@@ -12,13 +12,36 @@
         <h1>Algorithm Visualizations</h1>
         <p class="subtitle">Interactive visualizations of classic algorithms using p5.js.</p>
 
-        <div class="controls">
-            <button id="generate-btn">Generate New Array</button>
-            <button id="start-btn">Start Bubble Sort</button>
-        </div>
+        <section class="control-panel" aria-label="Visualization controls">
+            <div class="controls">
+                <button id="generate-btn">Generate New Array</button>
+                <button id="start-btn">Start Bubble Sort</button>
+                <button id="pause-btn" disabled>Pause</button>
+                <button id="reset-btn">Reset</button>
+            </div>
 
-        <p id="status-text" class="status">Ready</p>
+            <div class="speed-control">
+                <label for="speed-slider">Animation speed</label>
+                <input id="speed-slider" type="range" min="1" max="30" value="15" />
+                <span id="speed-value">15</span>
+            </div>
+        </section>
+
+        <section class="statistics" aria-label="Sorting statistics">
+            <div class="stat-card"><span class="stat-label">Comparisons</span><strong id="comparisons-value">0</strong></div>
+            <div class="stat-card"><span class="stat-label">Swaps</span><strong id="swaps-value">0</strong></div>
+            <div class="stat-card"><span class="stat-label">Progress</span><strong id="progress-value">0%</strong></div>
+        </section>
+
+        <p id="status-text" class="status" aria-live="polite">Ready</p>
         <div id="canvas-wrapper"></div>
+
+        <section class="legend" aria-label="Colour legend">
+            <span><i class="legend-box unsorted"></i>Unsorted</span>
+            <span><i class="legend-box comparing"></i>Comparing</span>
+            <span><i class="legend-box swapping"></i>Swapping</span>
+            <span><i class="legend-box sorted"></i>Sorted</span>
+        </section>
     </main>
 
     <script src="src/array.js"></script>

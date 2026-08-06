@@ -3,35 +3,31 @@ function getBubbleSortSteps(array) {
     const recordedSteps = [];
 
     for (let end = workingArray.length - 1; end > 0; end--) {
+        let swappedThisPass = false;
+
         for (let index = 0; index < end; index++) {
-            recordedSteps.push({
-                type: "compare",
-                indices: [index, index + 1]
-            });
+            recordedSteps.push({ type: "compare", indices: [index, index + 1] });
 
             if (workingArray[index] > workingArray[index + 1]) {
-                [workingArray[index], workingArray[index + 1]] = [
-                    workingArray[index + 1],
-                    workingArray[index]
-                ];
-
-                recordedSteps.push({
-                    type: "swap",
-                    indices: [index, index + 1]
-                });
+                [workingArray[index], workingArray[index + 1]] = [workingArray[index + 1], workingArray[index]];
+                recordedSteps.push({ type: "swap", indices: [index, index + 1] });
+                swappedThisPass = true;
             }
         }
 
-        recordedSteps.push({
-            type: "sorted",
-            indices: [end]
-        });
+        recordedSteps.push({ type: "sorted", indices: [end] });
+
+        if (!swappedThisPass) {
+            for (let index = end - 1; index >= 0; index--) {
+                recordedSteps.push({ type: "sorted", indices: [index] });
+            }
+            break;
+        }
     }
 
-    recordedSteps.push({
-        type: "sorted",
-        indices: [0]
-    });
+    if (workingArray.length === 1) {
+        recordedSteps.push({ type: "sorted", indices: [0] });
+    }
 
     return recordedSteps;
 }

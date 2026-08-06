@@ -1,4 +1,6 @@
 function drawBars() {
+    if (values.length === 0) return;
+
     const barWidth = width / values.length;
 
     for (let index = 0; index < values.length; index++) {
@@ -18,11 +20,7 @@ function setBarColour(index) {
     }
 
     if (currentStep?.indices.includes(index)) {
-        if (currentStep.type === "swap") {
-            fill(235, 90, 90);
-        } else {
-            fill(255, 180, 70);
-        }
+        fill(currentStep.type === "swap" ? color(235, 90, 90) : color(255, 180, 70));
         return;
     }
 
