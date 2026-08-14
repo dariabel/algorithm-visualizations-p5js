@@ -27,3 +27,22 @@ canvas { display: block; max-width: 100%; height: auto !important; }
 .swapping { background: rgb(235, 90, 90); }
 .sorted { background: rgb(80, 200, 120); }
 @media (max-width: 700px) { .statistics { grid-template-columns: 1fr; } .speed-control { width: 100%; } .speed-control input { flex: 1; } }
+
+.algorithm-control,
+.search-control {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+}
+
+.algorithm-control select,
+.search-control input {
+    padding: 0.65rem 0.9rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 0.95rem;
+}
+
+.hidden {
+    display: none;
+}

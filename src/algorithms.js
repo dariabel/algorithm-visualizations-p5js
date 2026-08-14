@@ -9,7 +9,8 @@ function getBubbleSortSteps(array) {
             recordedSteps.push({ type: "compare", indices: [index, index + 1] });
 
             if (workingArray[index] > workingArray[index + 1]) {
-                [workingArray[index], workingArray[index + 1]] = [workingArray[index + 1], workingArray[index]];
+                [workingArray[index], workingArray[index + 1]] =
+                    [workingArray[index + 1], workingArray[index]];
                 recordedSteps.push({ type: "swap", indices: [index, index + 1] });
                 swappedThisPass = true;
             }
@@ -25,9 +26,54 @@ function getBubbleSortSteps(array) {
         }
     }
 
-    if (workingArray.length === 1) {
-        recordedSteps.push({ type: "sorted", indices: [0] });
+    return recordedSteps;
+}
+
+function getInsertionSortSteps(array) {
+    const workingArray = [...array];
+    const recordedSteps = [];
+
+    for (let index = 1; index < workingArray.length; index++) {
+        let current = index;
+
+        while (current > 0) {
+            recordedSteps.push({ type: "compare", indices: [current - 1, current] });
+
+            if (workingArray[current - 1] <= workingArray[current]) break;
+
+            [workingArray[current - 1], workingArray[current]] =
+                [workingArray[current], workingArray[current - 1]];
+
+            recordedSteps.push({ type: "swap", indices: [current - 1, current] });
+            current--;
+        }
     }
 
+    for (let index = 0; index < workingArray.length; index++) {
+        recordedSteps.push({ type: "sorted", indices: [index] });
+    }
+
+    return recordedSteps;
+}
+
+function getBinarySearchSteps(array, target) {
+    const recordedSteps = [];
+    let left = 0;
+    let right = array.length - 1;
+
+    while (left <= right) {
+        const middle = Math.floor((left + right) / 2);
+        recordedSteps.push({ type: "visit", indices: [middle], bounds: [left, right] });
+
+        if (array[middle] === target) {
+            recordedSteps.push({ type: "found", indices: [middle] });
+            return recordedSteps;
+        }
+
+        if (array[middle] < target) left = middle + 1;
+        else right = middle - 1;
+    }
+
+    recordedSteps.push({ type: "not-found", indices: [] });
     return recordedSteps;
 }

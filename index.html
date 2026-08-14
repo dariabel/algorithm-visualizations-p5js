@@ -13,9 +13,23 @@
         <p class="subtitle">Interactive visualizations of classic algorithms using p5.js.</p>
 
         <section class="control-panel" aria-label="Visualization controls">
+            <div class="algorithm-control">
+                <label for="algorithm-select">Algorithm</label>
+                <select id="algorithm-select">
+                    <option value="bubble">Bubble Sort</option>
+                    <option value="insertion">Insertion Sort</option>
+                    <option value="binary">Binary Search</option>
+                </select>
+            </div>
+
+            <div id="search-control" class="search-control hidden">
+                <label for="search-target">Target</label>
+                <input id="search-target" type="number" />
+            </div>
+
             <div class="controls">
                 <button id="generate-btn">Generate New Array</button>
-                <button id="start-btn">Start Bubble Sort</button>
+                <button id="start-btn">Start</button>
                 <button id="pause-btn" disabled>Pause</button>
                 <button id="reset-btn">Reset</button>
             </div>
